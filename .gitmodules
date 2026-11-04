@@ -1,0 +1,8 @@
+[submodule "api"]
+	path = api
+	url = https://github.com/pietrocarpinacci-dufercodev/ctb-prova-api.git
+	branch = develop
+[submodule "web"]
+	path = web
+	url = https://github.com/pietrocarpinacci-dufercodev/ctb-prova-web.git
+	branch = develop

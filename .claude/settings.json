@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/id_rsa*)",
+      "Read(**/credentials*)",
+      "Read(**/secrets*)",
+      "Bash(git push:*)",
+      "Bash(gh:*)",
+      "Bash(git worktree:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git clean:*)",
+      "Bash(rm -rf:*)"
+    ]
+  },
+  "enabledPlugins": {
+    "superpowers@superpowers-marketplace": false,
+    "ponytail@ponytail": false
+  }
+}
