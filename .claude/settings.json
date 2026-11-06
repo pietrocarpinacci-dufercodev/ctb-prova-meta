@@ -15,9 +15,5 @@
       "Bash(git clean:*)",
       "Bash(rm -rf:*)"
     ]
-  },
-  "enabledPlugins": {
-    "superpowers@superpowers-marketplace": false,
-    "ponytail@ponytail": false
   }
 }
