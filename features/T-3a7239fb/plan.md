@@ -1,16 +1,17 @@
 # T-3a7239fb — Piano
 
-## Stato
-Piano provvisorio: la richiesta «riprova» non contiene un'attività concreta. Nessuna modifica al codice è pianificata finché non viene chiarita.
-
 ## Submodule coinvolti
-- Nessuno per ora (api e web non cambiano).
+- Nessuno: la richiesta è di sola consultazione, api e web non cambiano.
 
 ## Passi
-1. Il team indica nel thread cosa va ripetuto (la richiesta originale, o il messaggio/job che è fallito).
-2. Con la richiesta chiara, aggiornare `spec.md` con i criteri di accettazione e riscrivere questo piano, indicando per ogni submodule (api, web) i file toccati. Se cambia il contratto dell'API, riportarlo in `web/src/todos.js` e nei test di entrambi.
-3. Dopo l'approvazione, la fase di esecuzione implementa sui branch `claude/T-3a7239fb` dei submodule, verificando con `dotnet test api` e `npm test --prefix web`.
+1. Leggere le rotte registrate in `api/src/CtbProva.Api/Program.cs` e confrontarle con `api/README.md` (fatto, nessuna discrepanza).
+2. Riportare nel thread l'elenco dei 5 endpoint, riassunto in `spec.md`:
+   - GET `/api/health`
+   - GET `/api/todos`
+   - GET `/api/todos/{id}`
+   - POST `/api/todos`
+   - POST `/api/todos/{id}/done`
+3. Nessuna esecuzione necessaria: non ci sono modifiche da implementare né test da lanciare.
 
 ## Domande aperte
-- Cosa si intende per «riprova»? Quale richiesta o quale job precedente va rieseguito?
-- Se si riferisce a un'altra feature (per esempio T-2d17ef32 o T-a251369e, che hanno già un piano), va indicato l'id corretto.
+- Nessuna. Se serve un formato diverso (per esempio OpenAPI/Swagger o una tabella con gli schemi di richiesta e risposta), va chiesto nel thread.
