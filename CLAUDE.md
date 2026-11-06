@@ -9,7 +9,7 @@ Progetto di prova per la verifica end-to-end di claude-teams-bridge: un elenco d
 | ctb-prova-api | api | Web API .NET 10 (cose da fare in memoria) | develop |
 | ctb-prova-web | web | pagina HTML/JS statica che usa l'API | develop |
 
-Il web chiama l'API su `http://localhost:5000` (endpoint `/api/todos`, `/api/todos/{id}`, `/api/todos/{id}/done`, `/api/health`; vedi `api/README.md`). Un cambio al contratto dell'API va riportato anche in `web/src/todos.js` e nei test di entrambi.
+Il web chiama l'API su `http://localhost:5000` (endpoint `/api/todos` con `title` e `priority`, `/api/todos/{id}` anche con PATCH parziale, `/api/todos/{id}/done`, `/api/health`; vedi `api/README.md`). Un cambio al contratto dell'API va riportato anche in `web/src/todos.js` e nei test di entrambi.
 
 ## Comandi
 
