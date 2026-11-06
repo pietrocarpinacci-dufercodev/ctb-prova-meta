@@ -10,7 +10,7 @@
 3. api, `README.md`: aggiungere la riga DELETE alla tabella degli endpoint.
 4. web, test prima in `tests/todos.test.js`: `deleteTodo` chiama `DELETE` su `/api/todos/{id}`, non legge il corpo con 204 e lancia `errore 404` se `!ok`.
 5. web, `src/todos.js`: `export async function deleteTodo(id, fetchImpl = fetch)` con `method: "DELETE"`, `throw new Error(\`errore ${response.status}\`)` se `!response.ok`, nessun `json()`.
-6. web, `src/app.js`: importare `deleteTodo`; in `render` aggiungere per ogni todo (fatto o no) un pulsante "Elimina" con `run(() => deleteTodo(todo.id))`, dopo il pulsante "Fatto".
+6. web, `src/app.js`: importare `deleteTodo`; in `render` aggiungere per ogni todo (fatto o no, D2) un pulsante "Elimina", dopo il pulsante "Fatto". Il click chiede `confirm(\`Eliminare "${todo.title}"?\`)` (D1); solo se confermato esegue `run(() => deleteTodo(todo.id))`, altrimenti non fa nulla. `confirm` sta solo in `app.js` (DOM), così `deleteTodo` resta testabile con `node --test`; la conferma non ha test automatici e si verifica a mano.
 7. Verifica: `dotnet test api` e `npm test --prefix web`. Il contratto cambia in entrambi i submodule (regola del CLAUDE.md del meta-repo).
 8. Descrizioni PR in `/work/out/api.md`, `/work/out/web.md`, `/work/out/meta.md`.
 
@@ -22,5 +22,5 @@ Livello: verde
 - Accoppiamento: contratto API ↔ `web/src/todos.js`; i due submodule vanno rilasciati insieme (il web con "Elimina" contro un'API vecchia darebbe 405).
 
 ## Domande aperte
-- [ ] D1: il pulsante "Elimina" deve chiedere una conferma (es. `confirm()`) prima di cancellare, o cancella subito? La richiesta non lo dice; il piano assume nessuna conferma — fonti: richiesta vs requisito non specificato
-- [ ] D2: "Elimina" va mostrato anche sui todo già fatti? Il piano assume di sì (il pulsante "Fatto" invece compare solo sui non fatti) — fonti: richiesta ("accanto a ogni todo") vs `web/src/app.js`
+- [x] D1: il pulsante "Elimina" deve chiedere una conferma prima di cancellare? — risposta: sì, si chiede conferma (`confirm()` del browser); se l'utente annulla non si chiama l'API
+- [x] D2: "Elimina" va mostrato anche sui todo già fatti? — risposta: sì, su ogni todo

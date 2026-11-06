@@ -8,6 +8,8 @@ Nel thread: aggiungi la cancellazione dei todo. Nell'API un endpoint `DELETE /ap
 - IF l'id non esiste (o è già stato cancellato) THEN l'API SHALL rispondere 404.
 - WHEN un todo è stato cancellato, `GET /api/todos/{id}` SHALL rispondere 404 e `GET /api/todos` non SHALL più includerlo.
 - WHERE un todo è mostrato in lista (fatto o no), il frontend SHALL mostrare un pulsante "Elimina" accanto ad esso.
-- WHEN l'utente preme "Elimina", il frontend SHALL chiamare `DELETE /api/todos/{id}` e poi ricaricare e ridisegnare la lista.
+- WHEN l'utente preme "Elimina", il frontend SHALL chiedere conferma prima di procedere.
+- IF l'utente annulla la conferma THEN il frontend SHALL non chiamare l'API e lasciare la lista invariata.
+- WHEN l'utente conferma, il frontend SHALL chiamare `DELETE /api/todos/{id}` e poi ricaricare e ridisegnare la lista.
 - IF la chiamata DELETE fallisce THEN il frontend SHALL mostrare l'errore nel box errori esistente, come per le altre azioni.
 - IF la risposta è 204 THEN il frontend SHALL non leggere il corpo (nessun `response.json()`).
