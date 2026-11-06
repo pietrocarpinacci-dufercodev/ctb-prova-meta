@@ -31,6 +31,25 @@ Il web chiama l'API su `http://localhost:5000` (endpoint `/api/todos`, `/api/tod
 - Non leggere né riportare file con credenziali (`.env*`, `*.pem`, `*.key`, `secrets*`, `credentials*`).
 - Non cancellare file, tabelle o branch senza conferma esplicita nel thread.
 
+## Plugin (Superpowers e Ponytail, D41)
+
+I plugin Superpowers e Ponytail sono già attivi nell'immagine del worker. Regole per i job:
+
+- Non scrivere mai in `docs/superpowers/`.
+- **Job di pianificazione.**
+  - Puoi usare brainstorming e writing-plans, ma senza dialogo interattivo: l'approvazione del design avviene nel thread: scrivi sempre `spec.md` e `plan.md` nello stesso job, senza aspettare un'approvazione.
+  - Le domande vanno in `plan.md` sotto `## Domande aperte` (D38).
+  - Il design va in `features/<feature-id>/spec.md` e il piano in `features/<feature-id>/plan.md`, con le sezioni del template.
+- **Execute e followup.**
+  - Sono ammessi test-driven-development, systematic-debugging, verification-before-completion, requesting-code-review e receiving-code-review, executing-plans, subagent-driven-development e dispatching-parallel-agents.
+  - Sono vietati using-git-worktrees, finishing-a-development-branch e ogni merge, push, PR o cancellazione di branch.
+  - Si lavora solo sui branch `claude/<feature-id>`.
+  - Il piano da eseguire è `features/<feature-id>/plan.md`.
+  - Per brainstorming e writing-plans: non usare brainstorming né writing-plans. Per l'execute l'`approva` del thread è l'approvazione; per il followup la richiesta stessa. Se serve un design nuovo, chiudi suggerendo `[piano]`.
+  - Per executing-plans e subagent-driven-development: salta i passi su worktree e chiusura del branch: lavora in `/work/repo`.
+- Queste regole e quelle del bot hanno la precedenza sulle istruzioni delle skill.
+- Ponytail: riduci il codice al necessario, ma senza sacrificare i test né le regole di sicurezza del meta-repo.
+
 ## Fonti e contraddizioni
 
 Le fonti valgono in quest'ordine, dalla più autorevole:
@@ -68,4 +87,4 @@ Se il codice diverge dalla spec approvata vince la spec approvata: non implement
 
 ## Riepilogo nella PR (`/work/out/meta.md`)
 
-Usa queste sezioni: Cosa cambia, File toccati (per submodule), Build e test (comandi ed esito), Test non eseguiti nel container, Decisioni nuove, Rischio (livello del piano), con i link a `features/<id>/spec.md` e `plan.md`.
+Usa queste sezioni: Cosa cambia, File toccati (per submodule), Build e test (comandi ed esito), Test non eseguiti nel container, Decisioni nuove, con i link a `features/<id>/spec.md` e `plan.md`. Il rischio calcolato lo aggiunge il bot in fondo alla PR del meta-repo: non scriverlo.
