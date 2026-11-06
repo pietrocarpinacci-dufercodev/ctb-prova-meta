@@ -1,13 +1,15 @@
 # T-d1dfa20c — Priorità delle cose da fare
 
 ## Richiesta
-Nel thread: "vorrei poter assegnare una priorità (alta/media/bassa) alle cose da fare, visibile e modificabile dal web". Risposte: valori `high`, `medium`, `low` (D1); priorità in `POST /api/todos` e `PATCH /api/todos/{id}` (D2); obbligatoria in POST, senza predefinito (D3); PATCH parziale con gli stessi campi del POST (D4); ordinamento per priorità (D5); modificabile anche sulle voci fatte (D6); rimovibile, quindi nullable dopo la creazione (D7); ordine non fatte, `high`→`medium`→`low`→null, id (D8).
+Nel thread: "vorrei poter assegnare una priorità (alta/media/bassa) alle cose da fare, visibile e modificabile dal web". Risposte: valori `high`, `medium`, `low` (D1); priorità in `POST /api/todos` e `PATCH /api/todos/{id}` (D2); presente in POST, senza predefinito (D3), anche `null` (D9); PATCH parziale con gli stessi campi del POST (D4); ordinamento per priorità (D5); modificabile anche sulle voci fatte (D6); rimovibile, quindi nullable dopo la creazione (D7); ordine non fatte, `high`→`medium`→`low`→null, id (D8).
 
 ## Criteri di accettazione
 Valori: `high`, `medium`, `low`, oppure `null` (nessuna priorità).
 
 - WHEN l'API riceve `POST /api/todos` con `title` e `priority` valide, il sistema SHALL creare la cosa da fare con quella priorità.
-- IF `priority` manca o non è uno dei tre valori in `POST /api/todos` THEN l'API SHALL rispondere 400 con errore di validazione sul campo `priority`, senza creare nulla (il `null` esplicito in POST è la domanda D9).
+- WHEN l'API riceve `POST /api/todos` con `"priority": null`, il sistema SHALL creare la cosa da fare con `priority` `null`.
+- IF `priority` è presente ma non è `high`, `medium`, `low` né `null` in `POST /api/todos` THEN l'API SHALL rispondere 400 con errore di validazione sul campo `priority`, senza creare nulla.
+- IF la proprietà `priority` è assente in `POST /api/todos` THEN l'API SHALL rispondere 400 (nessun valore predefinito; da confermare, D10).
 - WHEN l'API riceve `PATCH /api/todos/{id}` con alcuni dei campi `title`, `priority`, il sistema SHALL aggiornare solo i campi presenti e restituire la cosa da fare aggiornata.
 - WHEN un campo non è presente nel corpo del PATCH, il sistema SHALL lasciarlo invariato.
 - WHEN il PATCH contiene `"priority": null`, il sistema SHALL rimuovere la priorità (valore `null`).
