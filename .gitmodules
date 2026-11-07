@@ -1,6 +1,6 @@
 [submodule "api"]
 	path = api
-	url = https://x:y@github.com/pietrocarpinacci-dufercodev/ctb-prova-api.git
+	url = https://github.com/pietrocarpinacci-dufercodev/ctb-prova-api.git
 	branch = develop
 [submodule "web"]
 	path = web
