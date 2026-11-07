@@ -6,3 +6,6 @@
 	path = web
 	url = https://github.com/pietrocarpinacci-dufercodev/ctb-prova-web.git
 	branch = develop
+[submodule "hello"]
+	path = hello
+	url = https://github.com/octocat/Hello-World.git
