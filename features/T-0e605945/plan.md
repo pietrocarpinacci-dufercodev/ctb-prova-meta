@@ -22,6 +22,21 @@
 10. Contratto: il cambio va riportato in `web/src/todos.js` e nei test di entrambi (`CLAUDE.md`). Eseguire `dotnet test api` e `npm test --prefix web`.
 11. Commit locali `[T-0e605945] ...` su `claude/T-0e605945` in ogni submodule toccato; descrizioni PR in `/work/out/api.md`, `/work/out/web.md`, `/work/out/meta.md`. La logica del riquadro è in `app.js` (DOM) e non ha test automatici: va indicato nelle PR.
 
+## Copertura requisiti
+Ricontrollata rispetto a `requisiti-cancellazione 3.pdf`, `immagine-1.png` e `todos-esempio 3.csv`: nessun requisito manca.
+
+| Req. | Dove nel piano | Verifica |
+| --- | --- | --- |
+| R1 DELETE 204/404 | passi 1, 3 | test API (esistente → 204, inesistente → 404) |
+| R2 completato eliminabile | passo 3 (riga 2 del CSV, `done=true`) | test API |
+| R3 "Elimina" accanto a ogni todo | passo 6 | solo a mano: `app.js` non ha test DOM |
+| R4 conferma come da mockup | passi 7, 8 | solo a mano: nessun test DOM |
+| R5 lista aggiornata senza ricaricare | passo 7 (`run` → `fetchTodos`) | solo a mano; `deleteTodo` coperto dai test web |
+| R6 dati di esempio nel CSV | passi 2, 9 | i test di entrambi i submodule leggono `todos-esempio.csv` |
+| Fuori ambito (multipla, cestino, undo) | non pianificati | — |
+
+Note: R3–R5 non hanno test automatici per via dell'assenza di test DOM nel web; un test DOM (jsdom) sarebbe una dipendenza nuova e non è pianificato. Il nome `todos-esempio.csv` di R6 differisce dall'allegato `todos-esempio 3.csv`: già risolto in D3.
+
 ## Rischio
 Livello: verde
 - Costi: piccoli, circa 5 file di codice e 2 di test; nessuna dipendenza nuova.
