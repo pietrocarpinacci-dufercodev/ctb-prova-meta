@@ -15,5 +15,5 @@ Il team chiede di aggiungere una priorità ai todo (thread Teams della feature T
 - WHEN un client chiama `GET /api/todos`, `GET /api/todos/{id}` o `POST /api/todos/{id}/done`, l'API SHALL includere `priority` nel todo restituito.
 - WHEN il web mostra l'elenco, il web SHALL mostrare la priorità accanto a ogni todo come testo, con una classe di colore diversa per `bassa`, `media` e `alta`.
 - WHERE il form di creazione è presente, il web SHALL offrire un menu con le tre priorità, con `media` preselezionata, e inviare quella scelta nella creazione.
-- WHEN il web mostra l'elenco, il web SHALL ordinarlo senza tenere conto della priorità (regola per i todo fatti: D6).
+- WHEN il web mostra l'elenco, il web SHALL ordinarlo come oggi (todo fatti in fondo, poi per id), senza tenere conto della priorità.
 - WHEN `dotnet test api` e `npm test --prefix web` vengono eseguiti, i test nuovi e quelli esistenti SHALL passare.

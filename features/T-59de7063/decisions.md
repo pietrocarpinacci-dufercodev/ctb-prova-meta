@@ -8,3 +8,4 @@
 | 2026-11-08 | Endpoint dedicato: `PATCH /api/todos/{id}/priority` (D3) | team (thread) | Risposta alla domanda D3 |
 | 2026-11-08 | Valore non valido → 400; confronto case-insensitive (D4) | team (thread) | Risposta alla domanda D4 |
 | 2026-11-08 | Filtro per priorità solo nell'API, non nel web (D5) | team (thread) | Risposta alla domanda D5 |
+| 2026-11-08 | `sortTodos` nel web invariato: fatti in fondo, poi per id; la priorità non cambia l'ordine (D6) | team (thread) | Risposta alla domanda D6 |

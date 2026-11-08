@@ -12,7 +12,7 @@
 4. API: `GET /api/todos?priority=alta` filtra; senza parametro restituisce tutto; valore non valido → 400 (case-insensitive). L'ordine resta per id.
 5. API: test (TDD) per default, creazione con priorità, case-insensitive, valore non valido, PATCH (ok/404/400), filtro (ok/non valido), ordine per id. `dotnet test api`.
 6. API: aggiornare `api/README.md` (tabella endpoint, campo `priority`).
-7. Web: `todos.js` — `addTodo` invia `priority`; `setPriority(id, priority)` con PATCH; `sortTodos` non cambia in base alla priorità (vedi D6); test in `todos.test.js`. Nessun filtro per priorità nel web.
+7. Web: `todos.js` — `addTodo` invia `priority`; `setPriority(id, priority)` con PATCH; `sortTodos` resta invariato (fatti in fondo, poi id; la priorità non conta, D6); test in `todos.test.js`. Nessun filtro per priorità nel web.
 8. Web: `index.html`/`app.js`/`style.css` — `<select>` bassa/media/alta nel form (preselezionato `media`); etichetta di priorità accanto a ogni todo con colore distinto per livello (testo sempre visibile, non solo colore). `npm test --prefix web`.
 9. Committare su `claude/T-59de7063` nei due submodule; descrizioni PR in `/work/out` (execute).
 
@@ -34,4 +34,4 @@ Livello: verde
 - [x] D3: forma dell'endpoint dedicato — risposta: `PATCH /api/todos/{id}/priority`.
 - [x] D4: valore non valido — risposta: 400; il confronto non distingue maiuscole e minuscole.
 - [x] D5: filtro nel web — risposta: no, il filtro solo nell'API per ora.
-- [ ] D6: nel web `sortTodos` oggi mette i todo fatti in fondo e poi ordina per id; "resta ordinato per id" significa lasciare `sortTodos` invariato (fatti in fondo) o ordinare solo per id? — fonti: risposta D2 (ordine per id) vs `web/src/todos.js` e `web/tests/todos.test.js` (fatti dopo, poi id)
+- [x] D6: ordine nel web (`sortTodos`: fatti in fondo, poi id) — risposta: `sortTodos` resta com'è, con i fatti in fondo e poi per id; la priorità non cambia l'ordinamento.
