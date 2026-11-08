@@ -8,7 +8,7 @@ Il team chiede (thread Teams del job T-5164e6ed) di aggiungere una scadenza ai t
 - WHEN un client invia `POST /api/todos` senza `dueDate`, l'API SHALL creare il todo con `dueDate` nullo, come oggi.
 - WHEN un client legge un todo (`GET /api/todos`, `GET /api/todos/{id}`, `POST /api/todos/{id}/done`), l'API SHALL includere `dueDate` (data `yyyy-MM-dd` oppure `null`).
 - IF `dueDate` non è una data valida `yyyy-MM-dd` THEN l'API SHALL rispondere 400 e non creare il todo.
-- WHEN un client chiama `GET /api/todos/overdue`, l'API SHALL elencare i todo non completati con `dueDate` precedente alla data UTC di oggi, ordinati per id.
+- WHEN un client chiama `GET /api/todos/overdue`, l'API SHALL elencare i todo non completati con `dueDate` precedente alla data UTC di oggi, ordinati per `dueDate` crescente e, a parità di data, per id.
 - WHERE un todo non ha `dueDate`, l'API SHALL escluderlo da `GET /api/todos/overdue`.
 - WHERE un todo è completato, l'API SHALL escluderlo da `GET /api/todos/overdue`.
 - WHEN un todo ha `dueDate` uguale alla data UTC di oggi, l'API SHALL non considerarlo scaduto.

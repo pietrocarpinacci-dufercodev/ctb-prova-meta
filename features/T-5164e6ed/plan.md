@@ -7,7 +7,7 @@
 ## Passi
 1. API, test prima: in `TodoApiTests.cs` aggiungere test per creazione con e senza `dueDate`, lettura di `dueDate` (lista, singolo, `done`), `dueDate` non valida (400), `GET /api/todos/overdue` (scaduto, scade oggi, senza data, completato escluso).
 2. API: `record Todo(int Id, string Title, bool Done, DateOnly? DueDate)` e `record NewTodo(string? Title, DateOnly? DueDate)`; `System.Text.Json` gestisce `DateOnly` come `yyyy-MM-dd`. Una data malformata fa fallire il binding con 400 (da verificare con un test).
-3. API: `TodoStore.Add(title, dueDate)` e `TodoStore.Overdue(today)`: `!Done && DueDate < today`, ordinati per id. "Oggi" è la data UTC del server, da `TimeProvider` (registrato nel contenitore, sostituibile nei test per provare il confine di "scade oggi").
+3. API: `TodoStore.Add(title, dueDate)` e `TodoStore.Overdue(today)`: `!Done && DueDate < today`, ordinati per `DueDate` e, a parità, per id (richiesta di followup). "Oggi" è la data UTC del server, da `TimeProvider` (registrato nel contenitore, sostituibile nei test per provare il confine di "scade oggi").
 4. API: `GET /api/todos/overdue`. Il vincolo `{id:int}` sulla rotta esistente evita il conflitto.
 5. API: aggiornare la tabella endpoint e la descrizione di `POST /api/todos` in `api/README.md`; `dotnet test api`.
 6. Web, contratto (CLAUDE.md del meta-repo): in `todos.js` aggiungere `isOverdue(todo, today)` pura (`!todo.done && !!todo.dueDate && todo.dueDate < today`, confronto tra stringhe ISO) e una piccola funzione per la data locale del browser `yyyy-MM-dd`, senza usare `toISOString` (che è UTC); `addTodo(title, dueDate)` invia `dueDate` solo se valorizzato. Test in `todos.test.js`: scaduto, oggi, senza data, completato, `addTodo` con e senza data.
