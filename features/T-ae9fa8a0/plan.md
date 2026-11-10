@@ -2,13 +2,13 @@
 
 ## Submodule coinvolti
 - api: `Todo` e `NewTodo` con `Priority`; enum/validazione dei valori `bassa|media|alta`; endpoint dedicato per cambiare la priorità; filtro `?priority=` su `GET /api/todos`; test in `TodoApiTests.cs`; tabella endpoint in `README.md`.
-- web: `todos.js` (invio `priority` in `addTodo`, funzione per cambiare priorità se serve, eventuale ordinamento), `app.js` (badge priorità colorato, menu in creazione), `index.html` e `style.css` (menu e tre colori), test in `web/tests/todos.test.js`, `README.md`.
+- web: `todos.js` (invio `priority` in `addTodo`, `sortTodos` per priorità), `app.js` (badge priorità colorato, menu in creazione), `index.html` e `style.css` (menu e tre colori), test in `web/tests/todos.test.js`, `README.md`.
 
 ## Passi
-1. Api, test prima: casi di creazione con/senza priorità, valore non valido (400), modifica priorità (200/404/400), filtro (valido/non valido), ordine dell'elenco.
-2. Api: aggiungere `Priority` a `Todo` (il `record` è posizionale: aggiornare `Add`, `MarkDone` usa già `with`); `NewTodo(string? Title, string? Priority)`; validazione che riusa lo stesso `ValidationProblem` del titolo; endpoint dedicato (D3); filtro in `GET /api/todos`; ordine come da D2.
+1. Api, test prima: casi di creazione con/senza priorità, valore non valido (400), modifica priorità (200/404/400), filtro (valido/non valido), elenco API ancora per id.
+2. Api: aggiungere `Priority` a `Todo` (il `record` è posizionale: aggiornare `Add`, `MarkDone` usa già `with`); `NewTodo(string? Title, string? Priority)`; validazione che riusa lo stesso `ValidationProblem` del titolo; endpoint dedicato (D3); filtro in `GET /api/todos`; l'elenco API resta ordinato per id (D2).
 3. Api: aggiornare `README.md` con i nuovi endpoint e parametri.
-4. Web, test prima: `addTodo` invia `priority`; priorità sconosciuta/mancante gestita; ordinamento se D2 lo richiede.
+4. Web, test prima: `addTodo` invia `priority`; priorità sconosciuta/mancante gestita; `sortTodos` ordina non fatti per priorità alta→bassa poi id, fatti in fondo (D2).
 5. Web: menu `<select>` nel form, badge accanto al titolo con classe per valore, tre colori in `style.css` (colore non unico veicolo di significato: il testo della priorità resta visibile), `README.md`.
 6. Eseguire `dotnet test api` e `npm test --prefix web`; l'API va rilasciata prima del web (il web invia un campo nuovo).
 7. Nell'execute usare `backend-dev` per la parte API, come da CLAUDE.md; il web si fa senza agente dedicato (D4 di T-9dfe1d36).
@@ -27,8 +27,8 @@ Livello: verde
 - Accoppiamento: contratto api↔web cambia in modo additivo (campo nuovo); il web deve tollerare todo senza `priority`.
 
 ## Domande aperte
-- [ ] D1: quale priorità di default quando in creazione non è indicata (es. `media`)? — fonti: richiesta del thread ("non abbiamo deciso") vs spec (criteri con `<DEFAULT>`)
-- [ ] D2: quale ordine dell'elenco? Oggi API per id e web prima i non fatti poi per id: si ordina per priorità (alta prima) dentro i non fatti, e l'ordine è fatto lato API, lato web o entrambi? — fonti: richiesta del thread vs `Program.cs` (`OrderBy(Id)`) e `web/src/todos.js` (`sortTodos`)
-- [ ] D3: endpoint dedicato: `PUT /api/todos/{id}/priority` con body `{ "priority": "alta" }` va bene (coerente con `POST /{id}/done` sarebbe `POST`)? — fonti: richiesta del thread vs convenzione di `api/README.md`
-- [ ] D4: i valori nel JSON sono in italiano minuscolo (`bassa`, `media`, `alta`) come scritti nella richiesta, e il filtro è `?priority=alta`? Maiuscole/minuscole accettate? — fonti: richiesta del thread vs convenzione dei nomi di campo in inglese (`title`, `done`)
-- [ ] D5: il web deve anche permettere di cambiare la priorità di un todo esistente e/o filtrare l'elenco per priorità? La richiesta lo chiede solo per l'API (menu solo in creazione). — fonti: richiesta del thread (parte web) vs richiesta del thread (parte API)
+- [x] D1: quale priorità di default quando in creazione non è indicata? — risposta: `media` (proposta accettata nel thread)
+- [x] D2: quale ordine dell'elenco? — risposta: proposta accettata: dentro i non fatti, priorità decrescente (alta, media, bassa), poi id; i fatti in fondo per id. Lo applica il web in `sortTodos`; l'API resta ordinata per id (interpretazione del bot, vedi decisions.md)
+- [x] D3: endpoint dedicato — risposta: `PUT /api/todos/{id}/priority` con body `{ "priority": "alta" }` (proposta accettata)
+- [x] D4: valori e filtro — risposta: valori in italiano minuscolo `bassa|media|alta`, filtro `?priority=alta`; in input maiuscole/minuscole accettate, in output sempre minuscolo (interpretazione del bot)
+- [x] D5: web su priorità esistente/filtro — risposta: no, il web ha solo il menu in creazione e il badge, come da richiesta; modifica e filtro restano solo API (interpretazione del bot)
