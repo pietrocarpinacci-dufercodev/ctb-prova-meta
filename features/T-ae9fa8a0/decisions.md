@@ -9,3 +9,4 @@
 | 2026-11-10 | Web: solo menu in creazione e badge; niente modifica né filtro nel web (D5) | thread | Proposta accettata; segue la lettera della richiesta (interpretazione del bot) |
 | 2026-11-10 | `priority` null in POST dà il default `media`; stringa vuota/spazi in POST, o mancante nel PUT, dà 400 | bot (execute) | Caso non coperto dalla spec: il default vale solo se il campo è assente |
 | 2026-11-10 | Il web invia sempre `priority` (default `media` in `addTodo`); senza priorità valida il badge è vuoto e il todo va in fondo ai pari stato | bot (execute) | Tolleranza ai todo senza priorità prevista dalla spec |
+| 2026-11-10 | Test aggiuntivo: una priorità non valida in creazione dà 400 e non crea il todo | thread (followup) | Esisteva già un test del solo 400; ora verifica anche l'assenza di effetti |
