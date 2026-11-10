@@ -17,3 +17,7 @@ Il web chiama l'API su `http://localhost:5000` (endpoint `/api/todos`, `/api/tod
 
 - API: `dotnet test api` (build e test).
 - Web: `npm test --prefix web` (runner integrato di Node, nessuna dipendenza da installare).
+
+## Agente di sviluppo
+
+Negli execute e followup usa in modo proattivo il subagent `backend-dev` (`.claude/agents/backend-dev.md`, tool Agent con `subagent_type: backend-dev`) per ogni lavoro sul codice, dopo l'approvazione di plan, spec e decisions. Nei job plan non si usa. Le regole del bot prevalgono: se non è possibile delegare, si lavora senza agente e lo si scrive nell'esito.
