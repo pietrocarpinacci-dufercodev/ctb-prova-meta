@@ -17,7 +17,8 @@
    - chiusura: aggiornare `decisions.md`, elencare test non eseguiti, descrizione PR per il submodule `api` in `/work/out/api.md`.
 3. Far eseguire l'execute con `backend-dev` (D2, D6), in due parti:
    - nel repo: aggiungere al `CLAUDE.md` del meta-repo la sezione "Agente di sviluppo": negli execute e followup tutto il lavoro sul codice va delegato al subagent `backend-dev` (tool Agent con `subagent_type: backend-dev`), mai nei job plan; la `description` dell'agente lo indica come predefinito per lo sviluppo;
-   - nel runner (claude-teams-bridge, fuori da questo repo): per i job execute e followup avviare la sessione con l'agente `backend-dev` come agente principale (`--agent backend-dev`), o nominarlo nel prompt del job. Questo è il modo che non dipende dall'obbedienza al CLAUDE.md (D7).
+   - runner: nessuna modifica per ora (D7). Opzione futura in claude-teams-bridge: avviare execute e followup con `--agent backend-dev`, che non dipende dall'obbedienza al CLAUDE.md.
+   - per rendere l'agente avviabile: nella `description` e nella regola del CLAUDE.md usare il nome esatto `backend-dev` e la formula "usalo in modo proattivo per ogni lavoro sul codice in execute/followup"; il prompt della regola non deve contraddire le regole del bot (che prevalgono): se il runner non la applica, il lavoro prosegue senza agente e lo si dice nell'esito.
 4. Verificare a mano (nessun codice eseguibile): il frontmatter è YAML valido e il file è rilevato (`/agents`); nessun segreto o riferimento a file proibiti.
 5. Nell'execute scrivere `/work/out/meta.md` con le sezioni richieste dal bot.
 
@@ -42,4 +43,4 @@ Livello: verde
 - [x] D4: Serve anche un agente Frontend per `web/`? — risposta: per il momento no
 - [x] D5: Dove vanno le linee guida backend? — risposta: nel meta-repo, nessun `api/CLAUDE.md`
 - [x] D6: Come far eseguire l'execute con il nostro subagent? — risposta: trovare il modo; piano al passo 3 (regola nel `CLAUDE.md` del meta-repo + modifica del runner)
-- [ ] D7: Le regole del bot dicono di prendere dal `CLAUDE.md` solo struttura, comandi e convenzioni, e valgono più del CLAUDE.md: una regola "delega a `backend-dev`" lì potrebbe essere ignorata. Basta come soluzione, o la modifica al runner (`--agent backend-dev` per execute/followup) è obbligatoria? Chi la fa su claude-teams-bridge? — fonti: richiesta D6 vs regole del bot (D45) e CLAUDE.md
+- [x] D7: La modifica al runner è obbligatoria? — risposta: per ora no; si rende l'agente avviabile da questo repo (regola nel `CLAUDE.md` + `description` che lo indica per execute/followup). La modifica al runner resta un'opzione futura

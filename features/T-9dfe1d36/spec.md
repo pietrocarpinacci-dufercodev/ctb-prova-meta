@@ -9,7 +9,8 @@ Il team ha chiesto nel thread Teams di creare un agente di sviluppo Backend (scr
 - WHEN il job è di tipo plan, l'agente `backend-dev` SHALL NOT essere usato per scrivere codice.
 - IF `spec.md` approvata e codice divergono THEN l'agente SHALL NOT implementare la parte in conflitto e SHALL segnalare la domanda suggerendo `[piano]`.
 - Il `CLAUDE.md` del meta-repo SHALL contenere la regola che execute e followup delegano il lavoro sul codice a `backend-dev` e i job plan no.
-- WHEN il runner avvia un job execute o followup, il runner SHALL usare `backend-dev` (modifica nel runner, fuori da questo repo; vedi D7 in `plan.md`).
+- La `description` dell'agente SHALL indicarlo come da usare in modo proattivo per ogni lavoro sul codice in execute e followup, così da poter essere avviato per nome senza modifiche al runner (D7).
+- Nessuna modifica al runner è richiesta da questa feature (D7).
 - Le linee guida backend SHALL stare solo nel meta-repo, senza `api/CLAUDE.md` (D5).
 - Il repository SHALL NOT contenere un agente Frontend in questa feature (D4).
 - Il prompt dell'agente SHALL riportare la gerarchia delle fonti (decisions/spec, decisions altre feature, CLAUDE.md, test, codice, README).
