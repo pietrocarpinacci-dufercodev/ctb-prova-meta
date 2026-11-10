@@ -4,3 +4,4 @@
 | --- | --- | --- | --- |
 | 2026-11-10 | "Primo submodule" = `api` (primo in `.gitmodules`, primo nella tabella del CLAUDE.md) | Claude (piano) | Ordine unico in entrambe le fonti |
 | 2026-11-10 | In `.claude/agents` c'è solo `backend-dev`: si usa solo quello, la regola "due diversi" non scatta | Claude (piano) | La richiesta chiede due agenti solo se ce ne sono due o più |
+| 2026-11-10 | Piano approvato con `[approva comunque]`: D1 resta aperta, si usa `backend-dev` come da spec | Team (thread) | Unico agente in `.claude/agents` |
