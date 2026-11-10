@@ -8,3 +8,4 @@
 | 2026-11-10 | Execute con `backend-dev`: regola nel CLAUDE.md del meta-repo e `description` proattiva; modifica al runner non obbligatoria per ora (D6, D7) | thread | Rendere l'agente avviabile restando nel repo; il runner resta un'opzione futura |
 | 2026-11-10 | Nessun agente Frontend per ora (D4) | thread | Fuori ambito |
 | 2026-11-10 | "Beckend" interpretato come "Backend" | bot (piano) | Refuso evidente nel thread |
+| 2026-11-10 | Test xUnit confermati dal csproj dell'api e citati nel prompt dell'agente | bot (execute) | Il piano diceva "xUnit-style"; verificato sul csproj |
