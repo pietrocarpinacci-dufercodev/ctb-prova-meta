@@ -5,5 +5,5 @@ Aggiungere al README del meta-repo una sezione "Prove automatiche" di due righe 
 
 ## Criteri di accettazione
 - WHEN si apre `README.md` del meta-repo, il README SHALL contenere una sezione con titolo "Prove automatiche".
-- Il testo della sezione SHALL essere di due righe e SHALL dire che il canale di prova riceve messaggi del programma ctb-e2e.
+- Il testo della sezione SHALL essere di due righe e SHALL dire che il canale di prova riceve messaggi del programma `ctb-e2e`, con il nome scritto tra apici inversi.
 - IF la feature è completata THEN il diff SHALL toccare solo `README.md` (e `features/T-443cf26e/`), senza modifiche ai submodule `api` e `web`.
