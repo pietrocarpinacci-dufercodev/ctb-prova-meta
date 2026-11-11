@@ -13,3 +13,6 @@
 | 2026-11-11 | Il web non modifica la priorità né filtra l'elenco in questa feature (D6) | thread | Proposta del piano accettata |
 | 2026-11-11 | Tutto il lavoro sul codice, api e web, delegato a `backend-dev`; nessun agente Frontend nuovo (D7) | thread / bot (piano) | Il thread chiede la scelta più semplice: un solo agente, regola del `CLAUDE.md` rispettata, D4 di T-9dfe1d36 invariata |
 | 2026-11-11 | Colori: bassa verde, media ambra, alta rosso | thread | La proposta del piano diceva "grigio/verde" per bassa: scelto verde |
+| 2026-11-11 | `GET /api/todos?priority=` con valore vuoto risponde 400 come valore non ammesso | bot (execute) | Coerente con D3/D5; coperto da test |
+| 2026-11-11 | Nel web una priorità sconosciuta arrivata dall'API è mostrata e ordinata come `media` | bot (execute) | Coerente con il default D1; la classe CSS si costruisce solo da valori ammessi |
+| 2026-11-11 | Test web eseguiti con `node --test` invece di `npm test --prefix web` | bot (execute) | npm non è installato nel container; lo script `test` è equivalente |
