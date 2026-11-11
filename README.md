@@ -10,3 +10,8 @@ Branch base: `develop` in tutti e tre i repo. Le feature richieste dal bot finis
 ```bash
 git clone --recurse-submodules https://github.com/pietrocarpinacci-dufercodev/ctb-prova-meta.git
 ```
+
+## Prove automatiche
+
+Il canale di prova riceve messaggi del programma `ctb-e2e`, usato per la verifica end-to-end del bridge.
+Le PR create dalle prove restano aperte.
