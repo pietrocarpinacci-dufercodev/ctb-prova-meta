@@ -10,3 +10,5 @@ Branch base: `develop` in tutti e tre i repo. Le feature richieste dal bot finis
 ```bash
 git clone --recurse-submodules https://github.com/pietrocarpinacci-dufercodev/ctb-prova-meta.git
 ```
+
+Ultimo aggiornamento: 2026-11-11 08:06 UTC
