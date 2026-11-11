@@ -4,7 +4,7 @@
 Nessuno: la modifica riguarda solo il `README.md` del meta-repo. `api` e `web` non si toccano.
 
 ## Passi
-1. In `README.md`, dopo il blocco `git clone`, aggiungere `## Prove automatiche` con due righe di testo: il canale di prova riceve messaggi del programma ctb-e2e; i messaggi sono automatici e non richieste di persone (testo esatto da confermare in D1).
+1. In `README.md`, dopo il blocco `git clone`, aggiungere `## Prove automatiche` con due righe di testo: il canale di prova riceve messaggi del programma `ctb-e2e` (nome tra apici inversi, come da richiesta nel thread); i messaggi sono automatici e non richieste di persone (testo esatto da confermare in D1).
 2. Verificare con `git diff` che cambi solo `README.md` e che `git submodule status` non mostri differenze.
 
 ## Fonti
