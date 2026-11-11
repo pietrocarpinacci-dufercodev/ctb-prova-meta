@@ -2,3 +2,7 @@
 
 | Data | Decisione | Chi | Motivo |
 | --- | --- | --- | --- |
+| 2026-11-11 | D1: data in formato ISO `AAAA-MM-GG` | bot (execute, `[approva comunque]`) | Domanda aperta; formato non ambiguo e ordinabile |
+| 2026-11-11 | D2: riga `Ultimo aggiornamento: <data>` in fondo al README | bot (execute, `[approva comunque]`) | Domanda aperta; non altera il contenuto esistente |
+| 2026-11-11 | D3: data del job di execute (`date +%F`), riga statica non rigenerata | bot (execute, `[approva comunque]`) | Domanda aperta; nessun automatismo richiesto |
+| 2026-11-11 | Modifica fatta senza subagent `backend-dev` | bot | Solo documentazione, nessun codice |
