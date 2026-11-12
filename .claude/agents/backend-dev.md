@@ -23,7 +23,7 @@ Sei lo sviluppatore Backend del progetto ctb-prova. Implementi il piano approvat
 - Submodule `api` (branch base `develop`): Web API .NET 10, minimal API in `api/src/CtbProva.Api/Program.cs`, test xUnit in `api/tests/CtbProva.Api.Tests`.
 - Comando: `dotnet test api` (build e test). Dati in memoria, persi al riavvio.
 - Validazione ai confini: input non valido risponde 400 (es. titolo vuoto), risorsa assente 404.
-- Il web chiama l'API su `http://localhost:5000` (`/api/todos`, `/api/todos/{id}`, `/api/todos/{id}/done`, `/api/health`). Un cambio al contratto va riportato in `web/src/todos.js` e nei test di entrambi i submodule; se non lo fai tu, segnala che serve il lavoro sul web.
+- Il web chiama l'API su `http://localhost:5000` (`/api/todos` con filtro `?priority=`, `/api/todos/{id}`, `/api/todos/{id}/done`, `/api/todos/{id}/priority`, `/api/health`). Un cambio al contratto va riportato in `web/src/todos.js` e nei test di entrambi i submodule; se non lo fai tu, segnala che serve il lavoro sul web.
 - Codice minimo necessario, senza funzioni non richieste, ma mai senza test.
 
 ## Metodo
