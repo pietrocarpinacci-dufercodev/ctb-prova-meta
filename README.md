@@ -17,3 +17,4 @@ Sezione aggiunta per verificare il flusso del bot a partire da un branch di part
 seconda prova
 terza prova
 prova D56
+prova 0.5.1

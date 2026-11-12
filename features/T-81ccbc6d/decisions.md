@@ -12,3 +12,4 @@
 | 2026-11-12 | Conflitto in `api/README.md` nel merge con `e2e-base` risolto tenendo entrambe le righe ("prova D55" e "prova D55 modificata su e2e-base") | bot (followup) | Conservare sia il lavoro della feature sia le modifiche del branch di partenza |
 | 2026-11-12 | Aggiunta la riga "prova D56" in fondo a `README.md` del meta-repo, dopo "terza prova" | thread (followup) | Richiesta esplicita nel thread |
 | 2026-11-12 | Secondo conflitto in `api/README.md` nel merge con `e2e-base`: tenute "prova D55" (feature) e "prova D56: riga cambiata su e2e-base", che su `e2e-base` sostituisce "prova D55 modificata su e2e-base" | bot (followup) | Conservare il lavoro della feature e applicare la modifica del branch di partenza |
+| 2026-11-12 | Aggiunta la riga "prova 0.5.1" in fondo a `README.md` del meta-repo, dopo "prova D56" | thread (followup) | Richiesta esplicita nel thread |
