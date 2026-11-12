@@ -8,3 +8,5 @@
 | 2026-11-12 | Execute senza `backend-dev` | bot (execute) | Modifica solo documentazione, nessun codice |
 | 2026-11-12 | Aggiunta la riga "prova D55" in fondo a `README.md` di ctb-prova-api: la richiesta del thread supera il "Non toccare i submodule" iniziale (criterio di spec sui submodule invariati non più valido per `api`) | thread (followup) | Richiesta esplicita nel thread |
 | 2026-11-12 | Aggiunta la riga "seconda prova" in fondo a `README.md` del meta-repo, dentro la sezione `## Prova branch di partenza`: la richiesta del thread supera il criterio di spec "esattamente una riga di testo" | thread (followup) | Richiesta esplicita nel thread |
+| 2026-11-12 | Aggiunta la riga "terza prova" in fondo a `README.md` del meta-repo, dopo "seconda prova" | thread (followup) | Richiesta esplicita nel thread |
+| 2026-11-12 | Conflitto in `api/README.md` nel merge con `e2e-base` risolto tenendo entrambe le righe ("prova D55" e "prova D55 modificata su e2e-base") | bot (followup) | Conservare sia il lavoro della feature sia le modifiche del branch di partenza |
