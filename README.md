@@ -14,3 +14,4 @@ git clone --recurse-submodules https://github.com/pietrocarpinacci-dufercodev/ct
 ## Prova branch di partenza
 
 Sezione aggiunta per verificare il flusso del bot a partire da un branch di partenza diverso da `develop`.
+seconda prova
