@@ -13,3 +13,8 @@
 | 2026-11-12 | Execute: `backend-dev` per `api`, web senza agente (D7) | thread | Proposta del piano accettata; non c'è un agente Frontend (T-9dfe1d36 D4) |
 | 2026-11-12 | Colori: bassa verde, media ambra, alta rosso, contrasto almeno 4.5:1 (D8) | thread | Proposta del piano accettata |
 | 2026-11-12 | Nel web i valori di priorità sconosciuti vanno in fondo e non hanno colore | bot (piano) | Scelta più semplice per un caso non coperto dalle domande, come chiesto nel thread |
+| 2026-11-12 | L'insieme dei valori ammessi è un campo statico `TodoStore.Priorities` (confronto `Ordinal`), usato da creazione, modifica e filtro; un solo helper `InvalidPriority()` per il 400 | bot (execute) | Una sola fonte dei valori validi per i tre endpoint |
+| 2026-11-12 | Il body del `PUT` è il record `PriorityChange(string? Priority)` | bot (execute) | Serve un tipo per il body `{ "priority": "..." }` |
+| 2026-11-12 | Nel web la priorità è uno `<span class="priority priority-<valore>">` accanto al titolo; colori `#1a7f37`, `#8a5a00`, `#b42318`, con contrasto misurato di 4.74, 5.53 e 6.13 sul fondo `#f6f7f9` | bot (execute) | D8: contrasto almeno 4.5:1 |
+| 2026-11-12 | Aggiornato anche l'elenco degli endpoint in `.claude/agents/backend-dev.md`, oltre a `CLAUDE.md` | bot (execute) | Lo stesso elenco compare in entrambi i file e non deve restare vecchio |
+| 2026-11-12 | Nel job il lavoro sull'`api` è stato delegato a `backend-dev`; il `web` è stato fatto senza agente (D7) | bot (execute) | Come da piano |
