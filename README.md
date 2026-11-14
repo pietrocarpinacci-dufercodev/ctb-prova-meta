@@ -22,3 +22,5 @@ followup 2
 dopo pulisci
 
 prova hook
+
+prova symlink
