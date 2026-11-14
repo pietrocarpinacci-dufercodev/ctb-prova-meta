@@ -18,3 +18,5 @@ Sezione di prova per verificare che la cartella di lavoro del bot resti persiste
 followup 1
 
 followup 2
+
+dopo pulisci
