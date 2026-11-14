@@ -14,3 +14,5 @@ git clone --recurse-submodules https://github.com/pietrocarpinacci-dufercodev/ct
 ## Prova cartella persistente
 
 Sezione di prova per verificare che la cartella di lavoro del bot resti persistente tra i job.
+
+followup 1
