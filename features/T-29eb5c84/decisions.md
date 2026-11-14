@@ -6,3 +6,5 @@
 | 2026-11-14 | Esclusi `.git/` e `node_modules/`; i file con nome da credenziali vanno solo contati, mai letti | bot (piano) | Rumore e regole sui segreti |
 | 2026-11-14 | Da elenco a conteggio: si riporta solo il numero totale nell'esito del job (D1) | thread | Followup nel thread |
 | 2026-11-14 | Ricerca delegata a un sotto-agente `Explore` via tool Agent; il bot non cerca direttamente e non usa `backend-dev` (D3) | thread | Followup nel thread; compito di sola lettura |
+| 2026-11-14 | Piano approvato con `[approva comunque]`: D2 e D4 restano aperte; si segue la spec (conteggio su meta-repo, `api` e `web`, inclusi `features/`, `.claude/` e template; esclusi `.git/` e `node_modules/`) | thread / bot (execute) | Domande aperte all'approvazione: vale la spec approvata |
+| 2026-11-14 | Risultato del sotto-agente `Explore`: 14 file `.md` (meta-repo 12, `api` 1, `web` 1); nessuna ricerca diretta del bot | bot (execute) | Followup nel thread |
