@@ -10,3 +10,7 @@ Branch base: `develop` in tutti e tre i repo. Le feature richieste dal bot finis
 ```bash
 git clone --recurse-submodules https://github.com/pietrocarpinacci-dufercodev/ctb-prova-meta.git
 ```
+
+## Prova cartella persistente
+
+Sezione di prova per verificare che la cartella di lavoro del bot resti persistente tra i job.
