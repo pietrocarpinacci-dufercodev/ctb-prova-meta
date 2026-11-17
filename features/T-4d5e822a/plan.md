@@ -4,7 +4,7 @@
 Nessuno: la modifica riguarda solo `README.md` del meta-repo.
 
 ## Passi
-1. In `README.md` aggiungere in fondo (dopo il blocco `git clone`) una sezione `## Prove automatiche` di due righe di testo: il canale di prova riceve messaggi del programma `ctb-e2e` (prove automatiche end-to-end), non da persone.
+1. In `README.md` aggiungere in fondo (dopo il blocco `git clone`) una sezione `## Prove automatiche` di due righe di testo: il canale di prova riceve messaggi del programma `ctb-e2e` (prove automatiche end-to-end), non da persone. Il nome del programma va scritto tra apici inversi, come richiesto nel thread.
 2. Verificare che `git diff` tocchi solo `README.md` e `features/T-4d5e822a/` e che i puntatori dei submodule non cambino.
 3. Scrivere la descrizione della PR in `/work/out/meta.md`.
 

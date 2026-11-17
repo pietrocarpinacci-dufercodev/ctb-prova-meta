@@ -5,6 +5,6 @@ Il team ha chiesto nel thread Teams di aggiungere al README del meta-repo una se
 
 ## Criteri di accettazione
 - WHEN si apre `README.md` del meta-repo, il README SHALL contenere una sezione con titolo "Prove automatiche".
-- Il testo della sezione SHALL essere di due righe e SHALL indicare che il canale di prova riceve messaggi del programma ctb-e2e.
+- Il testo della sezione SHALL essere di due righe e SHALL indicare che il canale di prova riceve messaggi del programma `ctb-e2e`, con il nome del programma tra apici inversi.
 - IF il lavoro viene eseguito, THEN i submodule `api` e `web` SHALL restare invariati (nessun commit, puntatori non spostati).
 - Il resto del README SHALL restare invariato.
