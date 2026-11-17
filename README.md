@@ -18,3 +18,5 @@ Questa sezione verifica che la cartella di lavoro del bot resti persistente tra 
 followup 1
 
 followup 2
+
+dopo pulisci

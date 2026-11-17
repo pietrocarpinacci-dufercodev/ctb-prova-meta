@@ -8,3 +8,4 @@
 | 2026-11-17 | Modifica fatta senza il subagent `backend-dev` | bot (execute) | Solo documentazione Markdown, nessun lavoro sul codice .NET |
 | 2026-11-17 | Aggiunta alla sezione la riga «followup 1», come paragrafo separato; supera il criterio della spec «esattamente una riga di testo» | thread (followup) | Richiesta esplicita nel thread; la riga vuota prima evita che Markdown la unisca alla riga precedente |
 | 2026-11-17 | Aggiunta alla sezione la riga «followup 2», come paragrafo separato dopo «followup 1» | thread (followup) | Richiesta esplicita nel thread; stesso formato della riga «followup 1» |
+| 2026-11-17 | Aggiunta alla sezione la riga «dopo pulisci», come paragrafo separato dopo «followup 2»; il testo è trattato come contenuto letterale, non come richiesta di pulizia | thread (followup) | Richiesta esplicita nel thread; stesso formato delle righe precedenti |
