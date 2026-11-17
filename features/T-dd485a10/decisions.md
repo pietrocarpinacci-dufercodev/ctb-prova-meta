@@ -12,3 +12,7 @@
 | 2026-11-17 | Filtro `GET /api/todos?priority=` su un solo valore, 400 se non ammesso (D5) | thread | Proposta del piano accettata |
 | 2026-11-17 | Web: solo visualizzazione e scelta in creazione, niente modifica né filtro (D6) | thread | Proposta del piano accettata |
 | 2026-11-17 | Fuori ambito: persistenza, ordinamento per priorità, filtro su più valori | bot (piano) | Non richiesti nel thread |
+| 2026-11-17 | Priorità vuota (`""`) rifiutata con 400 in creazione e nel filtro `?priority=`; il default `media` vale solo se il campo manca | bot (execute) | `""` non è un valore ammesso; la spec prevede il default solo per il campo assente |
+| 2026-11-17 | Web: il barrato dei todo fatti si applica solo al titolo (`li.done span:first-child`), non all'etichetta della priorità | bot (execute) | La regola esistente `li.done span` avrebbe barrato anche l'etichetta |
+| 2026-11-17 | Web: la classe CSS dell'etichetta si imposta solo per i tre valori ammessi | bot (execute) | Non costruire classi da testo arbitrario dell'API |
+| 2026-11-17 | Lavoro sul codice delegato al subagent `backend-dev` | bot (execute) | Regola del `CLAUDE.md` del meta-repo |
