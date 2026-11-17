@@ -16,3 +16,4 @@
 | 2026-11-17 | Web: il barrato dei todo fatti si applica solo al titolo (`li.done span:first-child`), non all'etichetta della priorità | bot (execute) | La regola esistente `li.done span` avrebbe barrato anche l'etichetta |
 | 2026-11-17 | Web: la classe CSS dell'etichetta si imposta solo per i tre valori ammessi | bot (execute) | Non costruire classi da testo arbitrario dell'API |
 | 2026-11-17 | Lavoro sul codice delegato al subagent `backend-dev` | bot (execute) | Regola del `CLAUDE.md` del meta-repo |
+| 2026-11-17 | Followup "test sul rifiuto di una priorità non valida in creazione": il test API esisteva già (`Create_with_invalid_priority_is_rejected`); aggiunto il test web che verifica che `addTodo` fallisca quando l'API risponde 400, senza validazione lato client | bot (followup) | La validazione resta al confine dell'API come da spec; al web mancava solo la copertura del rifiuto |
