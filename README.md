@@ -13,5 +13,6 @@ git clone --recurse-submodules https://github.com/pietrocarpinacci-dufercodev/ct
 
 ## Prove automatiche
 
-Il canale di prova riceve messaggi del programma `ctb-e2e`, che esegue le prove automatiche end-to-end.
+Il canale di prova riceve messaggi del programma `ctb-e2e`.
+Sono prove automatiche end-to-end, non messaggi di persone.
 Le PR create da queste prove restano aperte.
