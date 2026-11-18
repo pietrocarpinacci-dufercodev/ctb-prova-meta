@@ -11,3 +11,9 @@
 | 2026-11-18 | Valore di priorità non ammesso → 400 in creazione, endpoint dedicato e filtro (D5) | thread | Coerente con la validazione del titolo |
 | 2026-11-18 | Nel web solo visualizzazione e scelta in creazione, niente filtro né modifica (D6) | thread | Fuori dalla richiesta |
 | 2026-11-18 | Anche la parte web è delegata a `backend-dev` (D7) | thread | Nessun agente Frontend (T-9dfe1d36 D4) |
+| 2026-11-18 | `priority` accettata senza distinzione maiuscole/minuscole, solo come uno dei tre nomi: numeri ("1") e liste ("low,high") danno 400 | bot (execute) | `Enum.TryParse` da solo accetterebbe anche numeri e liste |
+| 2026-11-18 | Messaggio di errore della priorità in inglese; quello esistente del titolo resta in italiano | bot (execute) | Regola delle lingue: testo nuovo nel codice in inglese, testo esistente invariato |
+| 2026-11-18 | `MarkDone` e `SetPriority` condividono il metodo privato `TodoStore.Update` | bot (execute) | Evita di duplicare la stessa logica |
+| 2026-11-18 | Nei todo fatti l'etichetta della priorità non è barrata né ingrigita (`li.done span:not(.priority)`) | bot (execute) | Mantiene il contrasto dell'etichetta |
+| 2026-11-18 | Nel web una priorità assente o sconosciuta si ordina come `medium` e si mostra col valore grezzo | bot (execute) | Robustezza verso dati inattesi senza codice in più |
+| 2026-11-18 | Implementazione delegata al subagent `backend-dev` anche per il web | bot (execute) | `CLAUDE.md` e D7 |
