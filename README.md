@@ -14,3 +14,5 @@ git clone --recurse-submodules https://github.com/pietrocarpinacci-dufercodev/ct
 ## Prova branch di partenza
 
 Sezione aggiunta dal bot per verificare il lavoro su un branch di partenza diverso da `develop`.
+
+Data: 2026-11-18.
