@@ -18,3 +18,5 @@ Sezione di prova per verificare la cartella persistente del bot.
 followup 1
 
 followup 2
+
+dopo pulisci
