@@ -10,3 +10,6 @@
 | 2026-11-18 | Nel web nessun filtro né modifica della priorità dopo la creazione (D6) | thread | Proposta del piano accettata |
 | 2026-11-18 | Colori nel web: bassa verde, media ambra, alta rosso (D7) | thread | Proposta del piano accettata |
 | 2026-11-18 | La priorità nel web è mostrata anche come testo, non solo col colore | bot (piano) | Accessibilità: il colore da solo non basta |
+| 2026-11-18 | In `PUT /api/todos/{id}/priority` la validazione viene prima della ricerca: id inesistente con priorità non valida risponde 400, non 404 | bot (execute) | Stesso ordine di `POST /api/todos` (prima la validazione del body); la spec non definisce il caso combinato |
+| 2026-11-18 | Il messaggio d'errore nuovo del web (`Invalid priority.`) e l'`aria-label` del menu (`Priority`) sono in inglese, anche se i testi esistenti del web sono in italiano | bot (execute) | Regola di lingua del progetto: testi e messaggi nel codice in inglese |
+| 2026-11-18 | Il lavoro sul codice è stato delegato al subagent `backend-dev`, anche per il web | bot (execute) | Regola del `CLAUDE.md` del meta-repo; non esiste un agente Frontend (T-9dfe1d36, D4) |
