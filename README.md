@@ -16,3 +16,5 @@ git clone --recurse-submodules https://github.com/pietrocarpinacci-dufercodev/ct
 Sezione di prova per verificare la cartella persistente del runner.
 
 followup 1
+
+followup 2
