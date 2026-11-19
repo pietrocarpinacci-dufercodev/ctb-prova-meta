@@ -10,3 +10,6 @@
 | 2026-11-19 | Filtro con valore non valido → 400; confronto sensibile alle maiuscole, solo minuscolo (D5) | thread | Proposta del piano accettata |
 | 2026-11-19 | Il web mostra la priorità e la fa scegliere in creazione, senza modifica né filtro (D6) | thread | Proposta del piano accettata |
 | 2026-11-19 | Nell'execute `api` è delegato a `backend-dev`, `web` si fa senza agente (D7) | bot (piano), su delega del thread | Domanda senza proposta: scelta la più semplice, coerente con T-9dfe1d36 D4 |
+| 2026-11-19 | In `POST /api/todos/{id}/priority` la priorità si valida prima dell'id: un id inesistente con priorità mancante o non valida risponde 400, con priorità valida 404 | bot (execute) | La spec non fissa l'ordine; validare prima l'input evita una lettura dello store inutile |
+| 2026-11-19 | Messaggio di errore sulla priorità in inglese (`Priority must be one of: bassa, media, alta.`), quello già esistente sul titolo resta in italiano | bot (execute) | Regola delle lingue: testi nel codice in inglese, testo esistente invariato |
+| 2026-11-19 | Nel web il badge della priorità è escluso dallo stile barrato dei todo fatti (`li.done span:first-child`) | bot (execute) | La priorità resta leggibile anche sui todo completati |
