@@ -8,6 +8,8 @@ Allegati (in `/work/inputs`):
 - `dati.csv`: intestazione `titolo,priorita`, separatore virgola, due righe di esempio (`Comprare il latte,bassa`, `Preparare la demo,alta`).
 - `immagine-1.png`: un quadrato verde uniforme di pochi pixel, senza schema leggibile (vedi D1 in `plan.md`).
 
+Seconda richiesta nello stesso thread: "aggiungi al README una sezione "Glossario" con 40 voci tecniche del progetto", circa 400 caratteri per voce, con il testo completo riportato anche nel riepilogo del piano. Non è ancora chiaro se si aggiunge all'export o lo sostituisce (D9 in `plan.md`).
+
 Stato attuale dell'API: il record `Todo(Id, Title, Done)` non ha la priorità e `POST /api/todos` accetta solo `title`.
 
 ## Criteri di accettazione
@@ -23,3 +25,6 @@ Stato attuale dell'API: il record `Todo(Id, Title, Done)` non ha la priorità e 
 - IF un titolo contiene virgola, doppi apici o a capo THEN l'API SHALL racchiudere il campo tra doppi apici e raddoppiare i doppi apici interni (RFC 4180) (D5).
 - WHEN un client chiama `GET /api/todos/export`, l'API SHALL inviare `Content-Disposition: attachment; filename="todos.csv"` (D5).
 - WHEN un client chiama `GET /api/todos/{id}` con un id numerico, l'API SHALL continuare a comportarsi come oggi (la rotta `export` non deve interferire).
+- WHERE è presente il glossario, il `README.md` del meta-repo SHALL contenere una sezione `## Glossario` con esattamente 40 voci, ciascuna con il termine in grassetto (D8, D11).
+- WHERE è presente il glossario, ogni voce SHALL essere lunga circa 400 caratteri (tra 300 e 500) e descrivere un elemento che esiste nel codice o nei file del progetto al momento del commit (D10).
+- IF una voce del glossario cita un endpoint, una funzione o un file THEN il nome SHALL coincidere con quello presente nel codice.
