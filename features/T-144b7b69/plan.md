@@ -30,7 +30,8 @@
    - `web/src/app.js`: passa `prioritySelect.value` ad `addTodo` e rende per ogni todo uno `<span class="priority priority-<valore>">` con il testo della priorità.
    - `web/src/style.css`: tre colori (per esempio grigio/blu per bassa, ambra per media, rosso per alta), con contrasto sufficiente sul testo.
 6. **meta-repo**: aggiorna l'elenco degli endpoint nel `CLAUDE.md` e in `.claude/agents/backend-dev.md` (aggiungi `/api/todos/{id}/priority` e il filtro `?priority=`).
-7. **Verifica**: `dotnet test api` e `npm test --prefix web`. La UI non ha test automatici: va controllata a mano con API e `npm start --prefix web` (vedi Rischio).
+7. **Esecuzione**: delega il lavoro su `api` e su `web` all'agente `backend-dev` (D8).
+8. **Verifica**: `dotnet test api` e `npm test --prefix web`. La UI non ha test automatici: va controllata a mano con API e `npm start --prefix web` (vedi Rischio).
 
 ## Fonti
 - Richiesta nel thread Teams della feature (testo riportato in `spec.md`). Nessun allegato in `/work/inputs`.
@@ -48,11 +49,11 @@ Livello: verde
 - Accoppiamento: il contratto API ↔ web cambia in modo compatibile (campo aggiunto, `priority` facoltativo in creazione), ma va allineato nello stesso rilascio in `todos.js`, nei test e nella documentazione. La UI (menu e colori) non ha test automatici.
 
 ## Domande aperte
-- [ ] D1: Quale priorità di default si assegna a un todo creato senza `priority`, e quale si preseleziona nel menu del web? Proposta: `media` — fonti: richiesta nel thread ("non abbiamo deciso la priorità di default") vs criteri di creazione in `spec.md`
-- [ ] D2: Che forma ha l'endpoint dedicato per cambiare la priorità? Proposta: `PUT /api/todos/{id}/priority` con body `{ "priority": "alta" }`, in alternativa `POST`, sul modello dell'esistente `POST /api/todos/{id}/done` — fonti: richiesta nel thread ("endpoint dedicato") vs convenzione degli endpoint in `api/README.md`
-- [ ] D3: I valori nel JSON e nel codice sono quelli italiani `bassa`/`media`/`alta`, come nella richiesta, o quelli inglesi `low`/`medium`/`high`, con etichette italiane solo nella UI? Proposta: valori italiani, come chiesto — fonti: richiesta nel thread ("valori bassa, media e alta") vs regola delle lingue del progetto (codice, identificatori e testi nel codice in inglese)
-- [ ] D4: I testi nuovi visibili all'utente (etichette del menu, messaggi di validazione dell'API) restano in italiano, come quelli esistenti ("Fatto", "Il titolo è obbligatorio."), o passano all'inglese? Proposta: UI in italiano, coerente con la pagina `lang="it"`; messaggi di validazione dell'API in inglese — fonti: regola delle lingue del progetto vs testi esistenti in `web/src/app.js` e `api/src/CtbProva.Api/Program.cs`
-- [ ] D5: Con `GET /api/todos?priority=<valore non ammesso>` l'API risponde 400 o ignora il filtro e restituisce tutto? Proposta: 400 — fonti: richiesta nel thread (filtro per priorità, comportamento non specificato) vs convenzione "input non valido risponde 400" in `.claude/agents/backend-dev.md`
-- [ ] D6: L'elenco va ordinato per priorità (API, web o entrambi) o resta nell'ordine attuale (API per id; web prima i todo da fare, poi per id)? Proposta: ordine invariato — fonti: richiesta nel thread ("non abbiamo deciso l'ordine dell'elenco") vs `TodoStore.All()` in `api/src/CtbProva.Api/Program.cs` e `sortTodos` in `web/src/todos.js`
-- [ ] D7: Il web deve anche permettere di cambiare la priorità di un todo esistente e di filtrare l'elenco per priorità, o basta la parte chiesta (etichetta colorata e menu in creazione)? Proposta: solo la parte chiesta; `setPriority` in `todos.js` senza UI — fonti: richiesta nel thread (endpoint e filtro chiesti solo nell'API) vs regola del `CLAUDE.md` ("un cambio al contratto dell'API va riportato anche in `web/src/todos.js`")
-- [ ] D8: La feature tocca anche il web, ma l'agente `backend-dev` è dedicato al .NET e non c'è un agente Frontend. Il lavoro sul web lo fa `backend-dev` o il runner senza agente? Proposta: `backend-dev` per entrambi i submodule, perché il `CLAUDE.md` lo chiede "per ogni lavoro sul codice" — fonti: `CLAUDE.md` del meta-repo (sezione Agente di sviluppo) vs `features/T-9dfe1d36/decisions.md` (D4: nessun agente Frontend) e `description` di `.claude/agents/backend-dev.md`
+- [x] D1: Quale priorità di default si assegna a un todo creato senza `priority`, e quale si preseleziona nel menu del web? — risposta: `media` (proposta accettata nel thread)
+- [x] D2: Che forma ha l'endpoint dedicato per cambiare la priorità? — risposta: `PUT /api/todos/{id}/priority` con body `{ "priority": "alta" }` (proposta accettata nel thread)
+- [x] D3: I valori nel JSON e nel codice sono quelli italiani `bassa`/`media`/`alta` o quelli inglesi `low`/`medium`/`high`? — risposta: valori italiani `bassa`/`media`/`alta`, come chiesto; identificatori e commenti restano in inglese (proposta accettata nel thread)
+- [x] D4: I testi nuovi visibili all'utente restano in italiano o passano all'inglese? — risposta: UI del web in italiano, coerente con la pagina `lang="it"`; messaggi di validazione nuovi dell'API in inglese (proposta accettata nel thread)
+- [x] D5: Con `GET /api/todos?priority=<valore non ammesso>` l'API risponde 400 o ignora il filtro? — risposta: 400 (proposta accettata nel thread)
+- [x] D6: L'elenco va ordinato per priorità o resta nell'ordine attuale? — risposta: ordine invariato, nell'API per id e nel web prima i todo da fare, poi per id (proposta accettata nel thread)
+- [x] D7: Il web deve anche permettere di cambiare la priorità di un todo esistente e di filtrare l'elenco? — risposta: no, solo l'etichetta colorata e il menu in creazione; `setPriority` va in `todos.js` senza UI (proposta accettata nel thread)
+- [x] D8: Il lavoro sul web lo fa `backend-dev` o il runner senza agente? — risposta: `backend-dev` per entrambi i submodule (proposta accettata nel thread)

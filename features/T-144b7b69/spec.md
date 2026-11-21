@@ -5,7 +5,7 @@ Dal thread Teams della feature T-144b7b69 (il link al thread non è disponibile 
 
 > Vorrei aggiungere una priorità ai todo: nell'API un campo "priority" con valori bassa, media e alta, impostabile in creazione e modificabile con un endpoint dedicato, e la possibilità di filtrare l'elenco per priorità; nel web la priorità accanto a ogni todo con un colore diverso e un menu per sceglierla quando si crea un todo. Non abbiamo deciso quale debba essere la priorità di default né l'ordine dell'elenco.
 
-I punti segnati con "(D*n*)" dipendono dalle domande aperte in `plan.md`. Fino alla risposta valgono le proposte scritte qui: priorità di default `media`, valori JSON `bassa`/`media`/`alta`, endpoint `PUT /api/todos/{id}/priority`, ordine dell'elenco invariato.
+I riferimenti "(D*n*)" rimandano alle domande in `plan.md`, tutte risolte nel thread accettando le proposte: priorità di default `media`, valori JSON `bassa`/`media`/`alta`, endpoint `PUT /api/todos/{id}/priority`, 400 per un filtro non valido, ordine dell'elenco invariato. Il web non ha UI per cambiare la priorità o filtrare (D7). I testi della UI sono in italiano, i messaggi di validazione nuovi dell'API in inglese (D4).
 
 ## Criteri di accettazione
 
