@@ -16,3 +16,4 @@
 | 2026-11-21 | Nei todo fatti l'etichetta della priorità non è barrata né grigia (`li.done span:not(.priority)`) | bot (execute) | Il colore della priorità resta leggibile anche sui todo completati |
 | 2026-11-21 | `PUT /api/todos/{id}/priority` con body non valido risponde 400 anche se l'id non esiste: la validazione viene prima della ricerca | bot (execute) | Caso non coperto dalla spec; ordine coerente con `POST /api/todos` |
 | 2026-11-21 | Test web eseguiti con `node --test` in `web/`, perché `npm` non c'è nel container | bot (execute) | È lo stesso comando dello script `test` di `web/package.json` |
+| 2026-11-21 | Il rifiuto di una priorità non valida in creazione si verifica estendendo il test API esistente a più valori (`urgente`, stringa vuota, `Alta`) e aggiungendo un test web su `addTodo` quando l'API risponde 400 | bot (followup) | Richiesta del thread; evita un test API duplicato e copre anche il client web |
