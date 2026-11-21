@@ -13,3 +13,6 @@
 | 2026-11-21 | Nel web niente UI per cambiare la priorità o filtrare; `setPriority` solo in `todos.js` (D7) | thread | Proposta del piano accettata |
 | 2026-11-21 | Lavoro su `api` e `web` delegato a `backend-dev` (D8) | thread | Proposta del piano accettata; il `CLAUDE.md` lo chiede per ogni lavoro sul codice |
 | 2026-11-21 | `priority` è facoltativo in `POST /api/todos`: il contratto resta compatibile con i client esistenti | bot (piano) | Nessuna rottura per chi crea todo senza priorità |
+| 2026-11-21 | Nei todo fatti l'etichetta della priorità non è barrata né grigia (`li.done span:not(.priority)`) | bot (execute) | Il colore della priorità resta leggibile anche sui todo completati |
+| 2026-11-21 | `PUT /api/todos/{id}/priority` con body non valido risponde 400 anche se l'id non esiste: la validazione viene prima della ricerca | bot (execute) | Caso non coperto dalla spec; ordine coerente con `POST /api/todos` |
+| 2026-11-21 | Test web eseguiti con `node --test` in `web/`, perché `npm` non c'è nel container | bot (execute) | È lo stesso comando dello script `test` di `web/package.json` |
